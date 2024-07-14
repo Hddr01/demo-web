@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/stylehome.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Listings</h1>
+  <ul class="listing-list">
+    <li th:each="listing : ${listings}" class="listing-item">
+      <a th:href="@{/details/{id}(id=${listing.id})}" th:text="${listing.title}" class="listing-link"></a>
+    </li>
+  </ul>
+  <div class="actions">
+    <a href="/add" class="btn">Add Listing</a>
+    <a href="/logout" class="btn logout">Logout</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styled.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Details</h1>
+    <div class="details-item">
+        <label>Title:</label>
+        <p th:text="${listing.title}">Listing Title</p>
+    </div>
+    <div class="details-item">
+        <label>Description:</label>
+        <p th:text="${listing.description}">Listing Description</p>
+    </div>
+    <div class="details-item">
+        <label>Image URL:</label>
+        <img th:src="${listing.imageUrl}" alt="Listing Image" />
+    </div>
+    <div class="details-item">
+        <label>Contact Number:</label>
+        <button type="button" onclick="showContact()">Show Contact</button>
+        <p id="contactNumber" style="display:none;" th:text="${listing.contactNumber}">Contact Number</p>
+    </div>
+    <div class="details-item">
+        <a href="/">Back</a>
+    </div>
+    <div class="details-item">
+        <!-- Delete button for admin users -->
+        <form th:action="@{'/delete/' + ${listing.id}}" method="post" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+            <button type="submit">Delete Listing</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function showContact() {
+        document.getElementById("contactNumber").style.display = "block";
+    }
+</script>
+</body>
+</html>
