@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Add Listing</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styleaddlisting.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Add Listing</h1>
+    <form method="post" action="/add">
+        <div>
+            <label>Title:</label>
+            <input type="text" name="title"/>
+        </div>
+        <div>
+            <label>Description:</label>
+            <input type="text" name="description"/>
+        </div>
+        <div>
+            <label>Image URL:</label>
+            <input type="text" name="imageUrl"/>
+        </div>
+        <div>
+            <label>Contact Number:</label>
+            <input type="text" name="contactNumber"/>
+        </div>
+        <div>
+            <button type="submit">Add Listing</button>
+        </div>
+    </form>
+    <a href="/">Back</a>
+</div>
+</body>
+</html>
